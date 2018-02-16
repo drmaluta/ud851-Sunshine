@@ -170,7 +170,8 @@ public class MainActivity extends AppCompatActivity implements
         double[] coords = SunshinePreferences.getLocationCoordinates(this);
         String posLat = Double.toString(coords[0]);
         String posLong = Double.toString(coords[1]);
-        Uri geoLocation = Uri.parse("geo:" + posLat + "," + posLong);
+        String addressString = SunshinePreferences.getPreferredWeatherLocation(this);
+        Uri geoLocation = Uri.parse("geo:" + posLat + "," + posLong + "?q=" + addressString);
 
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setData(geoLocation);
