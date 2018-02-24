@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements
         String posLong = Double.toString(coords[1]);
         String addressString = SunshinePreferences.getPreferredWeatherLocation(this);
         Uri geoLocation;
-        if (addressString.length() > 0) {
+        if (SunshinePreferences.isLocationLatLonAvailable(this)) {
             geoLocation = Uri.parse("geo:" + posLat + "," + posLong + "?q=" + addressString);
         } else {
             geoLocation = Uri.parse("geo:" + posLat + "," + posLong);
